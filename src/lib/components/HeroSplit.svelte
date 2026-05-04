@@ -76,14 +76,14 @@
 					{description}
 				</p>
 
-				<div class="mt-12 flex justify-center">
+				<!-- <div class="mt-12 flex justify-center">
 					<button
 						class="group flex items-center gap-4 text-sm font-bold tracking-widest text-white uppercase"
 					>
 						<span class="h-[1px] w-8 bg-white transition-all group-hover:w-12"></span>
 						{ctaText}
 					</button>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	{/if}
