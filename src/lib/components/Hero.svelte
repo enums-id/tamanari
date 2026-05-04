@@ -29,13 +29,13 @@
 	const images = ['/hero/hero-1.jpeg', '/hero/hero-2.jpeg', '/hero/hero-3.jpeg']; // Replace with unique images
 </script>
 
-{#if visible}
-	<!-- svelte-ignore a11y_no_static_element_interactions -->
-	<section
-		class="relative flex h-screen flex-col items-center justify-center overflow-hidden bg-hero p-8 text-white"
-		onpointermove={handlePointerMove}
-		onpointerleave={handlePointerLeave}
-	>
+<!-- svelte-ignore a11y_no_static_element_interactions -->
+<section
+	class="relative flex h-screen flex-col items-center justify-center overflow-hidden bg-hero p-8 text-white"
+	onpointermove={handlePointerMove}
+	onpointerleave={handlePointerLeave}
+>
+	{#if visible}
 		<!-- Stacked card container -->
 		<div
 			class="relative h-87.5 w-70 md:h-125 md:w-100"
@@ -58,7 +58,7 @@
 				class="absolute top-[85%] -left-12 z-40 -translate-y-1/2 rotate-[-15deg] rounded-full border border-white bg-amber-100 p-2 md:top-1/2 md:-left-20 md:p-4"
 			>
 				<div
-					class="flex h-16 w-16 items-center justify-center rounded-full border-2 border-dashed border-primary text-center font-sans text-[6px] font-bold tracking-widest text-primary uppercase sm:text-[10px] md:h-24 md:w-24 md:text-xs"
+					class="flex h-24 w-24 items-center justify-center rounded-full border-2 border-dashed border-primary text-center font-sans text-[8px] font-bold tracking-widest text-primary uppercase sm:text-[10px] md:h-24 md:w-24 md:text-xs"
 				>
 					Airbnb's guest favorite
 				</div>
@@ -73,7 +73,7 @@
 		</h1>
 
 		<!-- Navigation Dots -->
-		<div class="mt-8 flex gap-2">
+		<div class="mt-8 flex gap-2" in:fade={{ duration: 1500, delay: 500 }}>
 			{#each images as _, i}
 				<button
 					class="h-3 w-3 rounded-full transition-all {activeIndex === i
@@ -83,5 +83,5 @@
 				></button>
 			{/each}
 		</div>
-	</section>
-{/if}
+	{/if}
+</section>

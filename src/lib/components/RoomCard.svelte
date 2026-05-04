@@ -1,34 +1,35 @@
-<div class="card">
-  <img src={image} alt={title} />
-  <h3>{title}</h3>
-  <p>{description}</p>
-  <button class="cursor-pointer">View Details</button>
-</div>
-
-<style>
-  .card {
-    border: 1px solid #f3f4f6;
-    padding: 1.5rem;
-    background: white;
-    transition: all 0.4s ease;
-  }
-  .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
-  }
-  .cursor-pointer {
-    cursor: pointer;
-    background: transparent;
-    border: 1px solid var(--color-primary);
-    padding: 0.5rem 1rem;
-    transition: background 0.3s;
-  }
-  .cursor-pointer:hover {
-    background: var(--color-primary);
-    color: white;
-  }
-</style>
-
 <script>
-  let { title, description, image } = $props();
+	let { id, title, description, image } = $props();
 </script>
+
+<div
+	class="relative overflow-hidden rounded-[2rem] bg-white p-6 shadow-xl transition-transform duration-500 hover:scale-[1.02] hover:rotate-[-1deg]"
+>
+	<!-- Postcard border/edge styling -->
+	<div class="relative pb-4">
+		<!-- Image frame -->
+		<div class="mb-6 aspect-[4/3] overflow-hidden rounded-[1.5rem] bg-gray-100">
+			<img
+				src={image}
+				alt={title}
+				class="h-full w-full object-cover transition-transform duration-700 hover:scale-110"
+			/>
+		</div>
+
+		<!-- Content -->
+		<div class="space-y-2 px-1">
+			<h3 class="font-serif text-2xl text-text">{title}</h3>
+			<p class=" line-clamp-2 text-sm font-light text-secondary">{description}</p>
+		</div>
+
+		<!-- Action -->
+		<div class="mt-6">
+			<a
+				href="/rooms/{id}"
+				class="block w-full rounded-full border border-primary bg-transparent px-4 py-2.5 text-center text-sm font-medium tracking-widest text-primary uppercase transition-all duration-300 hover:bg-primary hover:text-white"
+			>
+				Detail
+			</a>
+		</div>
+	</div>
+</div>
