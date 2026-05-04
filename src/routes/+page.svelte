@@ -15,5 +15,4 @@
 	imageUrl="/hero/hero-1.jpeg"
 />
 <RoomsGrid />
-<Amenities />
 <Footer />

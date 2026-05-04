@@ -3,6 +3,7 @@
 	import { onMount } from 'svelte';
 
 	let visible = $state(false);
+	let activeImageIndex = $state(0);
 
 	$effect(() => {
 		visible = true;
@@ -13,8 +14,32 @@
 		weekdayPrice: '3690 IDR',
 		weekendPrice: '3990 IDR',
 		description: `V ceně ubytování jsou 2 nocležníci. Na další už se musíme připravit. Pohodlně ubytuji 4 dospělé nocležníky. Děti do 3 let uvítá Šmírák zdarma.`,
-		imageUrl: '/hero/hero-1.jpeg'
+		images: ['/hero/hero-1.jpeg', '/room2.jpg', '/hero-bg.jpg'],
+		amenities: [
+			{ name: 'High-Speed WiFi', icon: '🌐' },
+			{ name: 'Gourmet Kitchen', icon: '🍳' },
+			{ name: 'Private Parking', icon: '🅿️' },
+			{ name: 'Mountain View', icon: '🏔️' },
+			{ name: 'Smart Home', icon: '🏠' },
+			{ name: 'Fresh Linens', icon: '🛏️' },
+			{ name: 'Air Conditioning', icon: '❄️' },
+			{ name: 'Private Balcony', icon: '🌅' }
+		],
+		facilities: [
+			{ name: 'Local Coffee Shop', distance: '5 mins walk', icon: '☕' },
+			{ name: 'Nature Trail', distance: '10 mins walk', icon: '🥾' },
+			{ name: 'Traditional Market', distance: '10 mins drive', icon: '🧺' },
+			{ name: 'City Center', distance: '20 mins drive', icon: '🏢' }
+		]
 	};
+
+	function nextImage() {
+		activeImageIndex = (activeImageIndex + 1) % room.images.length;
+	}
+
+	function prevImage() {
+		activeImageIndex = (activeImageIndex - 1 + room.images.length) % room.images.length;
+	}
 </script>
 
 <svelte:head>
@@ -59,14 +84,14 @@
 						</div>
 						<span class="text-sm font-medium tracking-widest uppercase">Pricing</span>
 					</div>
-					<div class="flex items-center gap-3">
+					<a href="#amenities" class="flex items-center gap-3 transition-opacity hover:opacity-80">
 						<div
 							class="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white"
 						>
 							<span class="text-xs">↗</span>
 						</div>
 						<span class="text-sm font-medium tracking-widest uppercase">Equipment</span>
-					</div>
+					</a>
 				</div>
 
 				<p class="max-w-lg font-sans text-lg leading-relaxed font-light opacity-90">
@@ -83,10 +108,91 @@
 				</div>
 			</div>
 
-			<!-- Right Column: Image -->
-			<div class="flex-1" in:fade={{ duration: 1500, delay: 300 }}>
+			<!-- Right Column: Image Gallery -->
+			<div class="flex-1 space-y-6" in:fade={{ duration: 1500, delay: 300 }}>
 				<div class="relative aspect-square overflow-hidden rounded-[2rem] shadow-2xl">
-					<img src={room.imageUrl} alt={room.title} class="h-full w-full object-cover" />
+					{#each room.images as img, i}
+						{#if activeImageIndex === i}
+							<img
+								src={img}
+								alt="{room.title} view {i + 1}"
+								class="absolute inset-0 h-full w-full object-cover"
+								in:fade={{ duration: 500 }}
+							/>
+						{/if}
+					{/each}
+
+					<!-- Navigation Arrows -->
+					<div class="absolute inset-x-4 top-1/2 flex -translate-y-1/2 justify-between">
+						<button
+							onclick={prevImage}
+							class="flex h-12 w-12 items-center justify-center rounded-full bg-black/20 backdrop-blur-md transition-colors hover:bg-black/40"
+						>
+							←
+						</button>
+						<button
+							onclick={nextImage}
+							class="flex h-12 w-12 items-center justify-center rounded-full bg-black/20 backdrop-blur-md transition-colors hover:bg-black/40"
+						>
+							→
+						</button>
+					</div>
+				</div>
+
+				<!-- Thumbnail Indicator -->
+				<div class="flex justify-center gap-2">
+					{#each room.images as _, i}
+						<button
+							onclick={() => (activeImageIndex = i)}
+							class="h-2 w-8 rounded-full transition-all {activeImageIndex === i
+								? 'bg-white'
+								: 'bg-white/20 hover:bg-white/40'}"
+						></button>
+					{/each}
+				</div>
+			</div>
+		</div>
+
+		<!-- Amenities & Facilities Sections -->
+		<div id="amenities" class="mx-auto mt-32 max-w-7xl space-y-24">
+			<!-- Amenities -->
+			<div class="space-y-12">
+				<h2 class="border-b border-white/10 pb-4 font-serif text-4xl">Room Amenities</h2>
+				<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+					{#each room.amenities as item}
+						<div
+							class="flex items-center gap-6 rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:scale-[1.02] hover:bg-white/10"
+						>
+							<div
+								class="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-2xl"
+							>
+								{item.icon}
+							</div>
+							<h3 class="font-sans text-base font-medium text-white">{item.name}</h3>
+						</div>
+					{/each}
+				</div>
+			</div>
+
+			<!-- Facilities -->
+			<div class="space-y-12 pb-24">
+				<h2 class="border-b border-white/10 pb-4 font-serif text-4xl">Nearby Facilities</h2>
+				<div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+					{#each room.facilities as item}
+						<div
+							class="flex items-center gap-6 rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:scale-[1.02] hover:bg-white/10"
+						>
+							<div
+								class="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-2xl"
+							>
+								{item.icon}
+							</div>
+							<div>
+								<h3 class="font-sans text-lg font-medium text-white">{item.name}</h3>
+								<p class="mt-1 text-sm tracking-wider uppercase opacity-60">{item.distance}</p>
+							</div>
+						</div>
+					{/each}
 				</div>
 			</div>
 		</div>
