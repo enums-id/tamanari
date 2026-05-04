@@ -1,10 +1,14 @@
 <script>
 	import { fade, fly } from 'svelte/transition';
 	import { onMount } from 'svelte';
+	import { page } from '$app/state';
+	import content from '$lib/data/content.json';
 
 	let visible = $state(false);
 	let activeImageIndex = $state(0);
 	let showFloatingCTA = $state(false);
+
+	const room = $derived(content.rooms.find((r) => r.id === page.params.id) || content.rooms[0]);
 
 	$effect(() => {
 		visible = true;
@@ -18,30 +22,6 @@
 		return () => window.removeEventListener('scroll', handleScroll);
 	});
 
-	const room = {
-		title: 'The Mountain Suite',
-		weekdayPrice: '3690 IDR',
-		weekendPrice: '3990 IDR',
-		description: `V ceně ubytování jsou 2 nocležníci. Na další už se musíme připravit. Pohodlně ubytuji 4 dospělé nocležníky. Děti do 3 let uvítá Šmírák zdarma.`,
-		images: ['/hero/hero-1.jpeg', '/room2.jpg', '/hero-bg.jpg'],
-		amenities: [
-			{ name: 'High-Speed WiFi', icon: '🌐' },
-			{ name: 'Gourmet Kitchen', icon: '🍳' },
-			{ name: 'Private Parking', icon: '🅿️' },
-			{ name: 'Mountain View', icon: '🏔️' },
-			{ name: 'Smart Home', icon: '🏠' },
-			{ name: 'Fresh Linens', icon: '🛏️' },
-			{ name: 'Air Conditioning', icon: '❄️' },
-			{ name: 'Private Balcony', icon: '🌅' }
-		],
-		facilities: [
-			{ name: 'Local Coffee Shop', distance: '5 mins walk', icon: '☕' },
-			{ name: 'Nature Trail', distance: '10 mins walk', icon: '🥾' },
-			{ name: 'Traditional Market', distance: '10 mins drive', icon: '🧺' },
-			{ name: 'City Center', distance: '20 mins drive', icon: '🏢' }
-		]
-	};
-
 	function nextImage() {
 		activeImageIndex = (activeImageIndex + 1) % room.images.length;
 	}
@@ -52,7 +32,7 @@
 </script>
 
 <svelte:head>
-	<title>{room.title} - Tamanari</title>
+	<title>{room.title} - {content.site.name}</title>
 </svelte:head>
 
 <section class="min-h-screen bg-primary px-8 py-12 text-white md:px-20 md:py-24">
@@ -60,25 +40,25 @@
 		href="/"
 		class="mb-12 inline-block text-sm tracking-widest uppercase opacity-60 transition-opacity hover:opacity-100"
 	>
-		← Back to all stays
+		{content.common.backToStays}
 	</a>
 	{#if visible}
 		<div class="mx-auto flex max-w-7xl flex-col gap-12 lg:flex-row lg:items-center">
 			<!-- Left Column: Content -->
 			<div class="flex-1 space-y-12" in:fly={{ x: -50, duration: 1000 }}>
-				<h1 class="font-serif text-7xl md:text-8xl">{room.title}</h1>
+				<h1 class="text-7xl md:text-8xl">{room.title}</h1>
 
 				<div class="max-w-md space-y-6">
 					<div class="flex items-end justify-between border-b border-white/20 pb-4">
 						<div class="text-sm tracking-widest uppercase opacity-80">
-							Price per night<br />Weekdays
+							{content.common.pricePerNight}<br />{content.common.weekdays}
 						</div>
 						<div class="text-3xl font-medium">{room.weekdayPrice}</div>
 					</div>
 
 					<div class="flex items-end justify-between border-b border-white/20 pb-4">
 						<div class="text-sm tracking-widest uppercase opacity-80">
-							Price per night<br />Weekends & Holidays
+							{content.common.pricePerNight}<br />{content.common.weekendsHolidays}
 						</div>
 						<div class="text-3xl font-medium">{room.weekendPrice}</div>
 					</div>
@@ -91,7 +71,9 @@
 						>
 							<span class="text-xs">↗</span>
 						</div>
-						<span class="text-sm font-medium tracking-widest uppercase">Pricing</span>
+						<span class="text-sm font-medium tracking-widest uppercase"
+							>{content.common.pricing}</span
+						>
 					</div>
 					<a href="#amenities" class="flex items-center gap-3 transition-opacity hover:opacity-80">
 						<div
@@ -99,7 +81,9 @@
 						>
 							<span class="text-xs">↗</span>
 						</div>
-						<span class="text-sm font-medium tracking-widest uppercase">Equipment</span>
+						<span class="text-sm font-medium tracking-widest uppercase"
+							>{content.common.equipment}</span
+						>
 					</a>
 				</div>
 
@@ -112,7 +96,7 @@
 						class="flex items-center gap-3 rounded-xl bg-[#FF5A5F] px-8 py-4 font-sans text-lg font-medium text-white transition-transform hover:scale-105"
 					>
 						<span class="text-xl">🏠</span>
-						Book via Airbnb
+						{content.common.bookAirbnb}
 					</button>
 				</div>
 			</div>
@@ -166,7 +150,9 @@
 		<div id="amenities" class="mx-auto mt-32 max-w-7xl space-y-24">
 			<!-- Amenities -->
 			<div class="space-y-12">
-				<h2 class="border-b border-white/10 pb-4 font-serif text-4xl">Room Amenities</h2>
+				<h2 class="border-b border-white/10 pb-4 text-4xl">
+					{content.common.roomAmenities}
+				</h2>
 				<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
 					{#each room.amenities as item}
 						<div
@@ -185,7 +171,9 @@
 
 			<!-- Facilities -->
 			<div class="space-y-12 pb-24">
-				<h2 class="border-b border-white/10 pb-4 font-serif text-4xl">Nearby Facilities</h2>
+				<h2 class="border-b border-white/10 pb-4 text-4xl">
+					{content.common.nearbyFacilities}
+				</h2>
 				<div class="grid grid-cols-1 gap-6 md:grid-cols-2">
 					{#each room.facilities as item}
 						<div
@@ -217,7 +205,7 @@
 					class="flex items-center gap-4 rounded-full bg-[#FF5A5F] px-4 py-2 font-sans text-sm font-medium text-white shadow-2xl transition-transform hover:scale-105 active:scale-95 sm:px-8 sm:py-4 sm:text-lg"
 				>
 					<span class="text-xl">🏠</span>
-					Book via Airbnb
+					{content.common.bookAirbnb}
 				</button>
 			</div>
 		{/if}

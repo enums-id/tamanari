@@ -3,7 +3,7 @@
 	import { onMount } from 'svelte';
 	import { spring } from 'svelte/motion';
 
-	let { title, subtitle, description, imageUrl } = $props();
+	let { title, subtitle, description, imageUrl, ctaText } = $props();
 
 	let visible = $state(false);
 	let sectionRef = $state();
@@ -58,7 +58,7 @@
 				>
 					{subtitle}
 				</span>
-				<h2 class="mb-8 font-serif text-5xl leading-tight text-text md:text-6xl lg:text-7xl">
+				<h2 class="mb-8 text-5xl leading-tight text-text md:text-6xl lg:text-7xl">
 					{title}
 				</h2>
 				<p class="max-w-md font-sans text-lg leading-relaxed font-light text-secondary opacity-80">
@@ -70,7 +70,7 @@
 						class="group flex items-center gap-4 text-sm font-bold tracking-widest text-primary uppercase"
 					>
 						<span class="h-[1px] w-8 bg-primary transition-all group-hover:w-12"></span>
-						Explore Location
+						{ctaText}
 					</button>
 				</div>
 			</div>
@@ -86,6 +86,18 @@
 				style="transform: scale(1.1) translate({$mousePos.x * -30}px, {$mousePos.y * -30}px)"
 			>
 				<img src={imageUrl} alt={title} class="h-full w-full object-cover shadow-2xl" />
+			</div>
+
+			<!-- Decorative floating badge -->
+			<div
+				class="absolute bottom-12 left-12 z-10 hidden rounded-full border border-white/20 bg-white/10 p-6 backdrop-blur-md md:block"
+				style="transform: translate({$mousePos.x * 40}px, {$mousePos.y * 40}px)"
+			>
+				<div
+					class="flex h-20 w-20 items-center justify-center rounded-full border border-dashed border-white/40 text-center text-[10px] font-bold tracking-tighter text-white uppercase"
+				>
+					Est. 2024<br />Tamanari
+				</div>
 			</div>
 		</div>
 	{/if}

@@ -2,6 +2,7 @@
 	import { fade, fly } from 'svelte/transition';
 	import { spring } from 'svelte/motion';
 	import Card from './Card.svelte';
+	import content from '$lib/data/content.json';
 
 	let activeIndex = $state(0);
 	let visible = $state(false);
@@ -10,7 +11,7 @@
 	$effect(() => {
 		visible = true;
 		const interval = setInterval(() => {
-			activeIndex = (activeIndex + 1) % 3;
+			activeIndex = (activeIndex + 1) % content.hero.images.length;
 		}, 3000);
 		return () => clearInterval(interval);
 	});
@@ -25,8 +26,6 @@
 	function handlePointerLeave() {
 		coords.set({ x: 0, y: 0 });
 	}
-
-	const images = ['/hero/hero-1.jpeg', '/hero/hero-2.jpeg', '/hero/hero-3.jpeg']; // Replace with unique images
 </script>
 
 <!-- svelte-ignore a11y_no_static_element_interactions -->
@@ -41,7 +40,7 @@
 			class="relative h-87.5 w-70 md:h-125 md:w-100"
 			in:fly={{ duration: 1500, delay: 500, y: 100 }}
 		>
-			{#each images as img, i}
+			{#each content.hero.images as img, i}
 				<Card
 					imageUrl={img}
 					active={activeIndex === i}
@@ -60,7 +59,7 @@
 				<div
 					class="flex h-24 w-24 items-center justify-center rounded-full border-2 border-dashed border-primary text-center font-sans text-[8px] font-bold tracking-widest text-primary uppercase sm:text-[10px] md:h-24 md:w-24 md:text-xs"
 				>
-					Airbnb's guest favorite
+					{content.hero.stampText}
 				</div>
 			</div>
 		</div>
@@ -69,12 +68,12 @@
 			class="mt-12 text-center font-sans text-4xl font-medium md:text-5xl"
 			in:fade={{ duration: 1500, delay: 500 }}
 		>
-			Tamanari Airbnb Bandung🍃
+			{content.hero.title}
 		</h1>
 
 		<!-- Navigation Dots -->
 		<div class="mt-8 flex gap-2" in:fade={{ duration: 1500, delay: 500 }}>
-			{#each images as _, i}
+			{#each content.hero.images as _, i}
 				<button
 					class="h-3 w-3 rounded-full transition-all {activeIndex === i
 						? 'scale-125 bg-white'

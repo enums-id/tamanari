@@ -1,12 +1,9 @@
-<section class="footer">
-  <p>&copy; 2026 Luxury Mountain Stays</p>
-</section>
+<script>
+	import content from '$lib/data/content.json';
+</script>
 
-<style>
-  .footer {
-    padding: 2rem;
-    text-align: center;
-    background-color: var(--color-primary);
-    color: white;
-  }
-</style>
+<footer class="bg-primary py-12 text-center text-white">
+	<p class="font-sans text-sm font-light opacity-60">
+		{content.site.copyright}
+	</p>
+</footer>

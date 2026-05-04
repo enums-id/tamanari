@@ -1,4 +1,5 @@
 <script>
+	import content from '$lib/data/content.json';
 	let { id, title, description, image } = $props();
 </script>
 
@@ -18,7 +19,7 @@
 
 		<!-- Content -->
 		<div class="space-y-2 px-1">
-			<h3 class="font-serif text-2xl text-text">{title}</h3>
+			<h3 class="text-2xl text-text">{title}</h3>
 			<p class=" line-clamp-2 text-sm font-light text-secondary">{description}</p>
 		</div>
 
@@ -28,7 +29,7 @@
 				href="/rooms/{id}"
 				class="block w-full rounded-full border border-primary bg-transparent px-4 py-2.5 text-center text-sm font-medium tracking-widest text-primary uppercase transition-all duration-300 hover:bg-primary hover:text-white"
 			>
-				Detail
+				{content.common.detail}
 			</a>
 		</div>
 	</div>
