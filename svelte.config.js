@@ -7,7 +7,7 @@ const config = {
 			fallback: '404.html'
 		}),
 		paths: {
-			base: process.argv.includes('dev') ? '' : '/tamanari'
+			base: process.env.NODE_ENV === 'production' ? '/tamanari' : ''
 		},
 		prerender: {
 			handleMissingId: 'warn'
