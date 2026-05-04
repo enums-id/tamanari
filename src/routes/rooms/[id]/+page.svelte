@@ -3,6 +3,7 @@
 	import { onMount } from 'svelte';
 	import { page } from '$app/state';
 	import content from '$lib/data/content.json';
+	import { Home, HomeIcon, MapPin, PinIcon } from 'lucide-svelte';
 
 	let visible = $state(false);
 	let activeImageIndex = $state(0);
@@ -48,41 +49,44 @@
 			<div class="flex-1 space-y-12" in:fly={{ x: -50, duration: 1000 }}>
 				<h1 class="text-7xl md:text-8xl">{room.title}</h1>
 
-				<div class="max-w-md space-y-6">
-					<div class="flex items-end justify-between border-b border-white/20 pb-4">
-						<div class="text-sm tracking-widest uppercase opacity-80">
-							{content.common.pricePerNight}<br />{content.common.weekdays}
+				<div class="max-w-md space-y-2">
+					<div class="flex flex-col gap-6">
+						<div class="flex items-end justify-between border-b border-white/20 pb-4">
+							<div class="text-sm tracking-widest uppercase opacity-80">
+								{content.common.pricePerNight}<br />{content.common.weekdays}
+							</div>
+							<div class="text-xl font-medium">{room.weekdayPrice}</div>
 						</div>
-						<div class="text-3xl font-medium">{room.weekdayPrice}</div>
-					</div>
 
-					<div class="flex items-end justify-between border-b border-white/20 pb-4">
-						<div class="text-sm tracking-widest uppercase opacity-80">
-							{content.common.pricePerNight}<br />{content.common.weekendsHolidays}
+						<div class="flex items-end justify-between border-b border-white/20 pb-4">
+							<div class="text-sm tracking-widest uppercase opacity-80">
+								{content.common.pricePerNight}<br />{content.common.weekendsHolidays}
+							</div>
+							<div class="text-xl font-medium">{room.weekendPrice}</div>
 						</div>
-						<div class="text-3xl font-medium">{room.weekendPrice}</div>
 					</div>
+					<span class="text-xs">*Start from</span>
 				</div>
 
 				<div class="flex gap-8">
-					<div class="flex items-center gap-3">
+					<a href="#amenities" class="flex items-center gap-3">
 						<div
 							class="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white"
 						>
-							<span class="text-xs">↗</span>
+							<span class="text-xs"><HomeIcon /></span>
 						</div>
 						<span class="text-sm font-medium tracking-widest uppercase"
-							>{content.common.pricing}</span
+							>{content.common.roomAmenities}</span
 						>
-					</div>
-					<a href="#amenities" class="flex items-center gap-3 transition-opacity hover:opacity-80">
+					</a>
+					<a href="#facilities" class="flex items-center gap-3 transition-opacity hover:opacity-80">
 						<div
 							class="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white"
 						>
-							<span class="text-xs">↗</span>
+							<span class="text-xs"><MapPin /></span>
 						</div>
 						<span class="text-sm font-medium tracking-widest uppercase"
-							>{content.common.equipment}</span
+							>{content.common.nearbyFacilities}</span
 						>
 					</a>
 				</div>
@@ -92,12 +96,13 @@
 				</p>
 
 				<div class="flex flex-wrap items-center gap-8 pt-4">
-					<button
+					<a
+						href={room.airbnbURL}
 						class="flex items-center gap-3 rounded-xl bg-[#FF5A5F] px-8 py-4 font-sans text-lg font-medium text-white transition-transform hover:scale-105"
 					>
 						<span class="text-xl">🏠</span>
 						{content.common.bookAirbnb}
-					</button>
+					</a>
 				</div>
 			</div>
 
@@ -147,9 +152,9 @@
 		</div>
 
 		<!-- Amenities & Facilities Sections -->
-		<div id="amenities" class="mx-auto mt-32 max-w-7xl space-y-24">
+		<div class="mx-auto mt-32 max-w-7xl space-y-24">
 			<!-- Amenities -->
-			<div class="space-y-12">
+			<div class="space-y-12" id="amenities">
 				<h2 class="border-b border-white/10 pb-4 text-4xl">
 					{content.common.roomAmenities}
 				</h2>
@@ -170,7 +175,7 @@
 			</div>
 
 			<!-- Facilities -->
-			<div class="space-y-12 pb-24">
+			<div class="space-y-12 pb-24" id="facilities">
 				<h2 class="border-b border-white/10 pb-4 text-4xl">
 					{content.common.nearbyFacilities}
 				</h2>
@@ -201,12 +206,13 @@
 				in:fly={{ y: 50, duration: 500 }}
 				out:fly={{ y: 50, duration: 300 }}
 			>
-				<button
+				<a
+					href={room.airbnbURL}
 					class="flex items-center gap-4 rounded-full bg-[#FF5A5F] px-4 py-2 font-sans text-sm font-medium text-white shadow-2xl transition-transform hover:scale-105 active:scale-95 sm:px-8 sm:py-4 sm:text-lg"
 				>
 					<span class="text-xl">🏠</span>
 					{content.common.bookAirbnb}
-				</button>
+				</a>
 			</div>
 		{/if}
 	{/if}

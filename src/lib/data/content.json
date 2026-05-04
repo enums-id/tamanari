@@ -1,93 +1,104 @@
 {
-  "site": {
-    "name": "Tamanari",
-    "tagline": "Airbnb Bandung🍃",
-    "copyright": "© 2026 Tamanari | Airbnb Bandung"
-  },
-  "hero": {
-    "title": "Tamanari Airbnb Bandung🍃",
-    "stampText": "Airbnb's guest favorite",
-    "images": [
-      "/hero/hero-1.jpeg",
-      "/hero/hero-2.jpeg",
-      "/hero/hero-3.jpeg"
-    ]
-  },
-  "intro": {
-    "badge": "Discover",
-    "title": "Welcome to Our Home",
-    "description": "Experience the perfect blend of rustic charm and modern luxury in the heart of the mountains.",
-    "ctaText": "View Rooms"
-  },
-  "heroSplit": {
-    "title": "Located in the heart of Bandung",
-    "subtitle": "Love the serenity",
-    "description": "Nestled in the serene landscapes in the heart of Bandung, our retreat offers the perfect escape from the bustling city. Enjoy nature's embrace while remaining close to the city's charm.",
-    "imageUrl": "/hero/hero-1.jpeg",
-    "ctaText": "Explore Location"
-  },
-  "roomsGrid": {
-    "title": "Our Stays",
-    "description": "Explore our carefully curated collection of mountain retreats, each designed for comfort and tranquility."
-  },
-  "rooms": [
-    {
-      "id": "upstairs",
-      "title": "Upstairs",
-      "description": "Cozy suite with a fireplace. V ceně ubytování jsou 2 nocležníci. Na další už se musíme připravit. Pohodlně ubytuji 4 dospělé nocležníky. Děti do 3 let uvítá Šmírák zdarma.",
-      "image": "/room1.jpg",
-      "weekdayPrice": "3690 IDR",
-      "weekendPrice": "3990 IDR",
-      "images": ["/hero/hero-1.jpeg", "/room2.jpg", "/hero-bg.jpg"],
-      "amenities": [
-        { "name": "High-Speed WiFi", "icon": "🌐" },
-        { "name": "Gourmet Kitchen", "icon": "🍳" },
-        { "name": "Private Parking", "icon": "🅿️" },
-        { "name": "Mountain View", "icon": "🏔️" },
-        { "name": "Smart Home", "icon": "🏠" },
-        { "name": "Fresh Linens", "icon": "🛏️" },
-        { "name": "Air Conditioning", "icon": "❄️" },
-        { "name": "Private Balcony", "icon": "🌅" }
-      ],
-      "facilities": [
-        { "name": "Local Coffee Shop", "distance": "5 mins walk", "icon": "☕" },
-        { "name": "Nature Trail", "distance": "10 mins walk", "icon": "🥾" },
-        { "name": "Traditional Market", "distance": "10 mins drive", "icon": "🧺" },
-        { "name": "City Center", "distance": "20 mins drive", "icon": "🏢" }
-      ]
-    },
-    {
-      "id": "poolhouse",
-      "title": "Poolhouse",
-      "description": "Spacious room with forest views. Enjoy the luxury of a private poolhouse with modern amenities.",
-      "image": "/room2.jpg",
-      "weekdayPrice": "4200 IDR",
-      "weekendPrice": "4500 IDR",
-      "images": ["/room2.jpg", "/hero-bg.jpg"],
-      "amenities": [
-        { "name": "Private Pool", "icon": "🏊‍♂️" },
-        { "name": "High-Speed WiFi", "icon": "🌐" },
-        { "name": "Smart Home", "icon": "🏠" }
-      ],
-      "facilities": [
-        { "name": "Local Coffee Shop", "distance": "5 mins walk", "icon": "☕" }
-      ]
-    }
-  ],
-  "common": {
-    "backToStays": "← Back to all stays",
-    "backToRoom": "← Back to room details",
-    "pricePerNight": "Price per night",
-    "weekdays": "Weekdays",
-    "weekendsHolidays": "Weekends & Holidays",
-    "pricing": "Pricing",
-    "equipment": "Equipment",
-    "bookAirbnb": "Book via Airbnb",
-    "giftVoucher": "Dárkový poukaz",
-    "roomAmenities": "Room Amenities",
-    "nearbyFacilities": "Nearby Facilities",
-    "bookStay": "Book Stay",
-    "bestChoice": "Best Choice",
-    "detail": "Detail"
-  }
+	"site": {
+		"name": "Tamanari",
+		"tagline": "Airbnb Bandung🍃",
+		"copyright": "© 2026 Tamanari Airbnb Bandung"
+	},
+	"hero": {
+		"title": "Tamanari Airbnb Bandung🍃",
+		"stampText": "Airbnb's guest favorite",
+		"images": [
+			"/hero/hero-1.jpeg",
+			"https://a0.muscache.com/im/pictures/hosting/Hosting-1277816953594980676/original/43f46578-db43-44b7-9a1c-903bb95d1b3d.jpeg?im_w=1200",
+			"/hero/hero-2.jpeg",
+			"https://a0.muscache.com/im/pictures/hosting/Hosting-1277816953594980676/original/ee14edc8-fcdd-42dd-8e8f-73fb4f85c7eb.jpeg?im_w=1200",
+			"/hero/hero-3.jpeg"
+		]
+	},
+	"intro": {
+		"badge": "Discover",
+		"title": "Welcome to Our Home",
+		"description": "Experience the perfect blend of rustic charm and modern luxury in the heart of the mountains.",
+		"ctaText": "View Rooms"
+	},
+	"heroSplit": {
+		"title": "A Sanctuary in Central Bandung",
+		"subtitle": "Tranquility Redefined",
+		"description": "Discover a peaceful haven tucked away in the city’s core. Our retreat balances lush, quiet surroundings with effortless access to Bandung's vibrant urban culture.",
+		"imageUrl": "/hero/hero-1.jpeg",
+		"ctaText": "Discover the Area"
+	},
+	"roomsGrid": {
+		"title": "The Accommodations",
+		"description": "Browse our selection of boutique spaces, thoughtfully crafted to provide a restful and stylish home base."
+	},
+	"rooms": [
+		{
+			"id": "upstairs",
+			"title": "Upstairs",
+			"description": "Enjoy a new home with a modern minimalist design on the 2nd floor of the tamanari complex. Have your own access to the airbnb area. Located in a quiet and peaceful neighborhood but right in the city center. Only 2 minutes walk to jalan riau and the cafe and restaurant center on jl.anggrek and jl.nanas. Upstairs tamanari has complete facilities with 2 bedrooms and 1 bathroom and a full kitchen, which can make it easy and provide comfort during your stay in Bandung",
+			"airbnbURL": "https://www.airbnb.com/rooms/962143730936904891",
+			"image": "https://a0.muscache.com/im/pictures/a92c3272-008b-47eb-8076-19af17321ae3.jpg?im_w=1200",
+			"weekdayPrice": "IDR 1,200,000*",
+			"weekendPrice": "IDR 2,800,000*",
+			"images": [
+				"https://a0.muscache.com/im/pictures/c1e6634d-498d-4109-9dfa-270410e0f3c5.jpg?im_w=1200",
+				"https://a0.muscache.com/im/pictures/6a81637d-ad31-4c8d-88d0-fd7ca50d2621.jpg?im_w=1200",
+				"https://a0.muscache.com/im/pictures/097e0415-ff27-4ccc-9347-fca49f6b5f43.jpg?im_w=720",
+				"https://a0.muscache.com/im/pictures/e1c8b2ff-7cc5-4063-95be-13beca0505d1.jpg?im_w=1200"
+			],
+			"amenities": [
+				{ "name": "High-Speed WiFi", "icon": "🌐" },
+				{ "name": "Gourmet Kitchen", "icon": "🍳" },
+				{ "name": "Private Parking", "icon": "🅿️" },
+				{ "name": "Mountain View", "icon": "🏔️" },
+				{ "name": "Smart Home", "icon": "🏠" },
+				{ "name": "Fresh Linens", "icon": "🛏️" },
+				{ "name": "Air Conditioning", "icon": "❄️" },
+				{ "name": "Private Balcony", "icon": "🌅" }
+			],
+			"facilities": [
+				{ "name": "Local Coffee Shop", "distance": "5 mins walk", "icon": "☕" },
+				{ "name": "Nature Trail", "distance": "10 mins walk", "icon": "🥾" },
+				{ "name": "Traditional Market", "distance": "10 mins drive", "icon": "🧺" },
+				{ "name": "City Center", "distance": "20 mins drive", "icon": "🏢" }
+			]
+		},
+		{
+			"id": "poolhouse",
+			"title": "Poolhouse",
+			"description": "Tamanari Poolhouse offers strategic accommodations, designed as comfortably as possible, suitable for those of you who want to enjoy Bandung City with culinary and shopping tours.",
+			"airbnbURL": "https://www.airbnb.com/rooms/962143730936904891",
+			"image": "https://a0.muscache.com/im/pictures/hosting/Hosting-1277816953594980676/original/a0cc3588-08e0-4284-9b11-d6d3d1cb4d6d.jpeg?im_w=1200",
+			"weekdayPrice": "IDR 2,300,000*",
+			"weekendPrice": "IDR 2,800,000*",
+			"images": [
+				"https://a0.muscache.com/im/pictures/hosting/Hosting-1277816953594980676/original/0967213a-e217-4566-8619-9fe9ded239e0.jpeg?im_w=1200",
+				"https://a0.muscache.com/im/pictures/hosting/Hosting-1277816953594980676/original/ee14edc8-fcdd-42dd-8e8f-73fb4f85c7eb.jpeg?im_w=1200",
+				"https://a0.muscache.com/im/pictures/hosting/Hosting-1277816953594980676/original/9e5e0999-21d3-40c1-a561-3bab4171b4be.jpeg?im_w=960",
+				"https://a0.muscache.com/im/pictures/hosting/Hosting-1277816953594980676/original/bade1933-2db7-471a-bb9b-37edecff4c1f.jpeg?im_w=720",
+				"https://a0.muscache.com/im/pictures/hosting/Hosting-1277816953594980676/original/5c31df80-844e-4bd3-b402-92c624e78d7f.jpeg?im_w=1200"
+			],
+			"amenities": [
+				{ "name": "Private Pool", "icon": "🏊‍♂️" },
+				{ "name": "High-Speed WiFi", "icon": "🌐" },
+				{ "name": "Smart Home", "icon": "🏠" }
+			],
+			"facilities": [{ "name": "Local Coffee Shop", "distance": "5 mins walk", "icon": "☕" }]
+		}
+	],
+	"common": {
+		"backToStays": "← Back to all stays",
+		"backToRoom": "← Back to room details",
+		"pricePerNight": "Price per night",
+		"weekdays": "Weekdays",
+		"weekendsHolidays": "Weekends & Holidays",
+		"bookAirbnb": "Book via Airbnb",
+		"giftVoucher": "Dárkový poukaz",
+		"roomAmenities": "Room Amenities",
+		"nearbyFacilities": "Nearby Facilities",
+		"bookStay": "Book Stay",
+		"bestChoice": "Best Choice",
+		"detail": "Detail"
+	}
 }

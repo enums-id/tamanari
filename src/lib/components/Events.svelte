@@ -84,14 +84,14 @@
 					target="_blank"
 					class="flex items-center gap-2 rounded-full bg-primary px-8 py-4 font-bold text-white transition-all hover:bg-primary/90"
 				>
-					Instagram
+					<img src="/ig.svg" alt="ig" class="h-4 w-4" /> Instagram
 				</a>
 				<a
-					href="https://wa.me/yournumber"
+					href="https://wa.me/628122423717"
 					target="_blank"
-					class="flex items-center gap-2 rounded-full border border-primary px-8 py-4 font-bold text-primary transition-all hover:bg-primary/5"
+					class="flex items-center gap-2 rounded-full bg-primary px-8 py-4 font-bold text-white transition-all hover:bg-primary/90"
 				>
-					<MessageCircle size={20} /> WhatsApp
+					<img src="/wa.svg" alt="wa" class="h-4 w-4" /> WhatsApp
 				</a>
 			</div>
 		</div>

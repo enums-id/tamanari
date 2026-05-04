@@ -37,6 +37,7 @@
 	}
 </script>
 
+<!-- svelte-ignore a11y_no_static_element_interactions -->
 <section
 	bind:this={sectionRef}
 	class="relative flex min-h-screen items-center justify-center overflow-hidden bg-bg"
@@ -61,7 +62,7 @@
 			in:fly={{ y: 30, duration: 1000, delay: 200 }}
 		>
 			<div
-				class="transition-transform duration-300 ease-out"
+				class="max-w-lg transition-transform duration-300 ease-out"
 				style="transform: translate({$mousePos.x * 10}px, {$mousePos.y * 10}px)"
 			>
 				<span
