@@ -156,14 +156,14 @@
 				<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
 					{#each room.amenities as item}
 						<div
-							class="flex items-center gap-6 rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:scale-[1.02] hover:bg-white/10"
+							class="flex items-center gap-6 rounded-3xl bg-white p-6 backdrop-blur-sm transition-all hover:scale-[1.02]"
 						>
 							<div
-								class="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-2xl"
+								class="flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-2xl text-primary"
 							>
 								{item.icon}
 							</div>
-							<h3 class="font-sans text-base font-medium text-white">{item.name}</h3>
+							<h3 class="font-sans text-base font-medium text-black">{item.name}</h3>
 						</div>
 					{/each}
 				</div>
@@ -177,16 +177,16 @@
 				<div class="grid grid-cols-1 gap-6 md:grid-cols-2">
 					{#each room.facilities as item}
 						<div
-							class="flex items-center gap-6 rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:scale-[1.02] hover:bg-white/10"
+							class="flex items-center gap-6 rounded-3xl bg-white p-6 backdrop-blur-sm transition-all hover:scale-[1.02]"
 						>
-							<div
-								class="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-2xl"
-							>
+							<div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-2xl">
 								{item.icon}
 							</div>
 							<div>
-								<h3 class="font-sans text-lg font-medium text-white">{item.name}</h3>
-								<p class="mt-1 text-sm tracking-wider uppercase opacity-60">{item.distance}</p>
+								<h3 class="font-sans text-lg font-medium text-primary">{item.name}</h3>
+								<p class="mt-1 text-sm tracking-wider text-black uppercase opacity-60">
+									{item.distance}
+								</p>
 							</div>
 						</div>
 					{/each}

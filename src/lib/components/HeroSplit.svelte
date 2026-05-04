@@ -39,64 +39,50 @@
 
 <section
 	bind:this={sectionRef}
-	class="relative flex min-h-screen flex-col overflow-hidden bg-bg md:flex-row"
+	class="relative flex min-h-screen items-center justify-center overflow-hidden bg-bg"
 	onmousemove={handleMouseMove}
 	onmouseleave={handleMouseLeave}
 >
-	{#if visible}
-		<!-- Left: Text Column -->
+	<!-- Background Image -->
+	<div class="absolute inset-0 z-0 h-full w-full overflow-hidden">
 		<div
-			class="order-2 flex flex-1 flex-col justify-center px-12 py-24 md:order-1 lg:px-24"
-			in:fly={{ x: -30, duration: 1000, delay: 200 }}
+			class="h-full w-full transition-transform duration-500 ease-out"
+			style="transform: scale(1.1) translate({$mousePos.x * -20}px, {$mousePos.y * -20}px)"
+		>
+			<img src={imageUrl} alt={title} class="h-full w-full object-cover" />
+			<div class="absolute inset-0 bg-black/40"></div>
+		</div>
+	</div>
+
+	{#if visible}
+		<!-- Centered Content -->
+		<div
+			class="relative z-10 flex flex-col items-center justify-center px-6 py-24 text-center"
+			in:fly={{ y: 30, duration: 1000, delay: 200 }}
 		>
 			<div
 				class="transition-transform duration-300 ease-out"
-				style="transform: translate({$mousePos.x * 20}px, {$mousePos.y * 20}px)"
+				style="transform: translate({$mousePos.x * 10}px, {$mousePos.y * 10}px)"
 			>
 				<span
-					class="mb-4 block font-sans text-sm font-medium tracking-[0.3em] text-primary uppercase"
+					class="mb-4 block font-sans text-sm font-medium tracking-[0.3em] text-white uppercase"
 				>
 					{subtitle}
 				</span>
-				<h2 class="mb-8 text-5xl leading-tight text-text md:text-6xl lg:text-7xl">
+				<h2 class="mb-8 text-5xl leading-tight text-white md:text-6xl lg:text-7xl">
 					{title}
 				</h2>
-				<p class="max-w-md font-sans text-lg leading-relaxed font-light text-secondary opacity-80">
+				<p class="mx-auto max-w-lg font-sans text-lg leading-relaxed font-light text-white/80">
 					{description}
 				</p>
 
-				<div class="mt-12">
+				<div class="mt-12 flex justify-center">
 					<button
-						class="group flex items-center gap-4 text-sm font-bold tracking-widest text-primary uppercase"
+						class="group flex items-center gap-4 text-sm font-bold tracking-widest text-white uppercase"
 					>
-						<span class="h-[1px] w-8 bg-primary transition-all group-hover:w-12"></span>
+						<span class="h-[1px] w-8 bg-white transition-all group-hover:w-12"></span>
 						{ctaText}
 					</button>
-				</div>
-			</div>
-		</div>
-
-		<!-- Right: Image Column -->
-		<div
-			class="relative order-1 h-[50vh] flex-1 overflow-hidden md:order-2 md:h-screen"
-			in:fade={{ duration: 1200 }}
-		>
-			<div
-				class="h-full w-full transition-transform duration-500 ease-out"
-				style="transform: scale(1.1) translate({$mousePos.x * -30}px, {$mousePos.y * -30}px)"
-			>
-				<img src={imageUrl} alt={title} class="h-full w-full object-cover shadow-2xl" />
-			</div>
-
-			<!-- Decorative floating badge -->
-			<div
-				class="absolute bottom-12 left-12 z-10 hidden rounded-full border border-white/20 bg-white/10 p-6 backdrop-blur-md md:block"
-				style="transform: translate({$mousePos.x * 40}px, {$mousePos.y * 40}px)"
-			>
-				<div
-					class="flex h-20 w-20 items-center justify-center rounded-full border border-dashed border-white/40 text-center text-[10px] font-bold tracking-tighter text-white uppercase"
-				>
-					Est. 2024<br />Tamanari
 				</div>
 			</div>
 		</div>
