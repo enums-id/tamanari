@@ -2,6 +2,7 @@
 	import { fade, fly } from 'svelte/transition';
 	import { onMount } from 'svelte';
 	import { spring } from 'svelte/motion';
+	import { base } from '$app/paths';
 
 	let { title, subtitle, description, imageUrl, ctaText } = $props();
 
@@ -50,7 +51,7 @@
 			class="h-full w-full transition-transform duration-500 ease-out"
 			style="transform: scale(1.1) translate({$mousePos.x * -20}px, {$mousePos.y * -20}px)"
 		>
-			<img src={imageUrl} alt={title} class="h-full w-full object-cover" />
+			<img src={base + imageUrl} alt={title} class="h-full w-full object-cover" />
 			<div class="absolute inset-0 bg-black/40"></div>
 		</div>
 	</div>

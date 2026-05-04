@@ -66,7 +66,7 @@
 				<div class="group min-w-[300px] snap-start md:min-w-[400px]">
 					<div class="mb-6 h-[400px] w-full overflow-hidden rounded-2xl">
 						<img
-							src={event.image}
+							src={base + event.image}
 							alt={event.title}
 							class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
 						/>
