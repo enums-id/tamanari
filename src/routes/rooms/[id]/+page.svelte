@@ -4,9 +4,18 @@
 
 	let visible = $state(false);
 	let activeImageIndex = $state(0);
+	let showFloatingCTA = $state(false);
 
 	$effect(() => {
 		visible = true;
+	});
+
+	onMount(() => {
+		const handleScroll = () => {
+			showFloatingCTA = window.scrollY > 400;
+		};
+		window.addEventListener('scroll', handleScroll);
+		return () => window.removeEventListener('scroll', handleScroll);
 	});
 
 	const room = {
@@ -196,5 +205,21 @@
 				</div>
 			</div>
 		</div>
+
+		<!-- Floating CTA -->
+		{#if showFloatingCTA}
+			<div
+				class="fixed bottom-8 left-1/2 z-50 -translate-x-1/2"
+				in:fly={{ y: 50, duration: 500 }}
+				out:fly={{ y: 50, duration: 300 }}
+			>
+				<button
+					class="flex items-center gap-4 rounded-full bg-[#FF5A5F] px-4 py-2 font-sans text-sm font-medium text-white shadow-2xl transition-transform hover:scale-105 active:scale-95 sm:px-8 sm:py-4 sm:text-lg"
+				>
+					<span class="text-xl">🏠</span>
+					Book via Airbnb
+				</button>
+			</div>
+		{/if}
 	{/if}
 </section>
