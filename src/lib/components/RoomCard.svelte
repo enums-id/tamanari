@@ -1,4 +1,5 @@
 <script>
+	import { base } from '$app/paths';
 	import content from '$lib/data/content.json';
 	let { id, title, description, image } = $props();
 </script>
@@ -26,7 +27,7 @@
 		<!-- Action -->
 		<div class="mt-6">
 			<a
-				href="/rooms/{id}"
+				href={base + '/rooms/{id}'}
 				class="block w-full rounded-full border border-primary bg-transparent px-4 py-2.5 text-center text-sm font-medium tracking-widest text-primary uppercase transition-all duration-300 hover:bg-primary hover:text-white"
 			>
 				{content.common.detail}

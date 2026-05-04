@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { ChevronLeft, ChevronRight, MessageCircle } from 'lucide-svelte';
 	import { onMount } from 'svelte';
+	import { base } from '$app/paths';
 
 	let { events = [] } = $props();
 	let scrollContainer = $state();
@@ -84,14 +85,14 @@
 					target="_blank"
 					class="flex items-center gap-2 rounded-full bg-primary px-8 py-4 font-bold text-white transition-all hover:bg-primary/90"
 				>
-					<img src="/ig.svg" alt="ig" class="h-4 w-4" /> Instagram
+					<img src={base + '/ig.svg'} alt="ig" class="h-4 w-4" /> Instagram
 				</a>
 				<a
 					href="https://wa.me/628122423717"
 					target="_blank"
 					class="flex items-center gap-2 rounded-full bg-primary px-8 py-4 font-bold text-white transition-all hover:bg-primary/90"
 				>
-					<img src="/wa.svg" alt="wa" class="h-4 w-4" /> WhatsApp
+					<img src={base + '/wa.svg'} alt="wa" class="h-4 w-4" /> WhatsApp
 				</a>
 			</div>
 		</div>

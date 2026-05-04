@@ -4,6 +4,7 @@
 	import { page } from '$app/state';
 	import content from '$lib/data/content.json';
 	import { Home, HomeIcon, MapPin, PinIcon } from 'lucide-svelte';
+	import { base } from '$app/paths';
 
 	let visible = $state(false);
 	let activeImageIndex = $state(0);
@@ -38,7 +39,7 @@
 
 <section class="min-h-screen bg-primary px-8 py-12 text-white md:px-20 md:py-24">
 	<a
-		href="/"
+		href={base + '/'}
 		class="mb-12 inline-block text-sm tracking-widest uppercase opacity-60 transition-opacity hover:opacity-100"
 	>
 		{content.common.backToStays}
