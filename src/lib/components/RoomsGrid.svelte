@@ -26,8 +26,8 @@
 <section bind:this={sectionRef} id="rooms" class="bg-bg px-8 py-24">
 	<div class="mx-auto max-w-6xl">
 		<div class="mb-16 text-start">
-			<h2 class="mb-4 text-5xl text-text uppercase tracking-widest">{content.roomsGrid.title}</h2>
-			<p class="font-light text-secondary max-w-xl">
+			<h2 class="mb-4 text-4xl text-text md:text-5xl">{content.roomsGrid.title}</h2>
+			<p class="max-w-xl font-light text-secondary">
 				{content.roomsGrid.description}
 			</p>
 		</div>

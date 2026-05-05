@@ -4,6 +4,27 @@
 		"tagline": "Airbnb Bandung🍃",
 		"copyright": "© 2026 Tamanari Airbnb Bandung"
 	},
+	"events": {
+		"title": "Events at Tamanari",
+		"subtitle": "Experiences",
+		"cta": {
+			"question": "Need more information?",
+			"instagram": "https://instagram.com/tamanari",
+			"whatsapp": "https://wa.me/628122423717"
+		},
+		"list": [
+			{
+				"title": "Morning Yoga",
+				"date": "Every Sunday",
+				"image": "/hero/hero-1.jpeg"
+			},
+			{
+				"title": "Coffee Workshop",
+				"date": "Bi-weekly",
+				"image": "/hero/hero-2.jpeg"
+			}
+		]
+	},
 	"hero": {
 		"title": "Tamanari Airbnb Bandung🍃",
 		"stampText": "Airbnb's guest favorite",
@@ -26,7 +47,8 @@
 		"subtitle": "Tranquility Redefined",
 		"description": "Discover a peaceful haven tucked away in the city’s core. Our retreat balances lush, quiet surroundings with effortless access to Bandung's vibrant urban culture.",
 		"imageUrl": "/hero/hero-1.jpeg",
-		"ctaText": "Discover the Area"
+		"ctaText": "Discover the Area",
+		"mapURL": "https://www.google.com/maps/place/Tamanari/@-6.9137348,107.6267577,15.92z/data=!4m14!1m7!3m6!1s0x2e68e71bb1dc509f:0x3e1710c158ea0475!2sTamanari!8m2!3d-6.9142924!4d107.6312944!16s%2Fg%2F11w2nlzqyc!3m5!1s0x2e68e71bb1dc509f:0x3e1710c158ea0475!8m2!3d-6.9142924!4d107.6312944!16s%2Fg%2F11w2nlzqyc?entry=ttu&g_ep=EgoyMDI2MDQyOS4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"roomsGrid": {
 		"title": "The Accommodations",

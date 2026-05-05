@@ -6,12 +6,6 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import HeroSplit from '$lib/components/HeroSplit.svelte';
 	import content from '$lib/data/content.json';
-
-    const events = [
-        { title: 'Sunset Yoga Session', date: 'Every Friday', image: '/hero/hero-1.jpeg' },
-        { title: 'Local Art Workshop', date: 'May 15, 2026', image: '/hero/hero-2.jpeg' },
-        { title: 'Community Dinner', date: 'May 20, 2026', image: '/hero/hero-3.jpeg' }
-    ];
 </script>
 
 <Hero />
@@ -24,5 +18,5 @@
 	ctaText={content.heroSplit.ctaText}
 />
 <RoomsGrid />
-<Events {events} />
+<Events />
 <Footer />
